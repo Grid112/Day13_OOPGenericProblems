@@ -1,6 +1,16 @@
 package com.BridgeLabz;
 
-public class OOPGenericProblems {
+public class OOPGenericProblems <E extends Comparable<E>> {
+    E a,b,c;
+    /*
+     constructor points to the variables a, b ,c
+     constructor here takes parameter of any type of data
+     */
+    public OOPGenericProblems(E a, E b, E c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
     //Here we used Generic Method to Compare all the Data types at the same time
     public static <E extends Comparable<E>> E compare(E a, E b, E c){
         E max = a;
