@@ -1,32 +1,33 @@
 package com.BridgeLabz;
 
+import java.util.Arrays;
+
 public class OOPGenericProblems <E extends Comparable<E>> {
-    E a,b,c;
+    E[] element;
+    E result;
     /*
-     constructor points to the variables a, b ,c
-     constructor here takes parameter of any type of data
+     * constructor point to the a, b ,c
+     * constructor take parameter any type of data
      */
-    public OOPGenericProblems(E a, E b, E c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+
+    public OOPGenericProblems(E[] element) {
+        this.element = element;
     }
     //Here we used Generic Method to Compare all the Data types at the same time
-    public static <E extends Comparable<E>> E compare(E a, E b, E c){
-        E max = a;
-        if(b.compareTo(max)>0){
-            max = b;
-        }
-        if(c.compareTo(max)>0){
-            max = c;
-        }
+    public static <E extends Comparable<E>> E compare(E[] element){
+        Arrays.sort(element);
+        int length = element.length;
+        E max = element[length -1];
+        System.out.println("Maximum Data Type Is: " +max);
         return max;
-
     }
     public static void main(String[] args) {
 	System.out.println("Welcome To OOP Generic Problems");
-        System.out.println("Maximum Integer Is: " +compare(8,9,6));
-        System.out.println("Maximum Float Is: " +compare(1.2f,4.2f,6.8f));
-        System.out.println("Maximum String Is: " +compare("Apple","Peach","Banana"));
+    Integer[] intMax = { 8, 9, 6, 7, 10 };
+    compare(intMax);
+    Float[] floatMax = { 1.2f, 4.5f, 6.8f, 4.6f };
+    compare(floatMax);
+    String[] stringMax = { "Apple", "Peach", "Banana", "Orange"};
+    compare(stringMax);
     }
 }
